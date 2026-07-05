@@ -70,7 +70,7 @@ LIMIT 10
 
 - **Variety of Job Roles:** Although the analysis focuses on Data Analyst positions, the job titles include different levels and specializations, reflecting the diverse career opportunities within the data analytics field.
 
-  ![Top Paying Roles](project_sql\assets\top_paying_jobs.png)
+  ![Top Paying Roles](project_sql/assets/top_paying_jobs.png)
 
   *Bar chart showing the top 10 highest-paying remote Data Analyst jobs based on the SQL query results. The visualization was generated from the query output.*
 
