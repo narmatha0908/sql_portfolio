@@ -9,7 +9,7 @@ WITH optimal_skills AS(
     SELECT
         sd.skill_id,
         sd.skills,
-        COUNT(sd.skills)
+        COUNT(sjd.job_id) AS demand_count
     FROM job_postings_fact AS jpf
     INNER JOIN skills_job_dim AS sjd
     ON jpf.job_id = sjd.job_id
@@ -41,15 +41,15 @@ WITH optimal_skills AS(
 SELECT 
     optimal_skills.skill_id,
     optimal_skills.skills,
-    optimal_skills.count,
+    optimal_skills.demand_count,
     average_salaries.avg_salary
 FROM
     optimal_skills
 INNER JOIN average_salaries
 ON optimal_skills.skill_id = average_salaries.skill_id
 WHERE
-    optimal_skills.count > 10
+    optimal_skills.demand_count > 10
 ORDER BY
     average_salaries.avg_salary DESC,
-    optimal_skills.count DESC
+    optimal_skills.demand_count DESC
 

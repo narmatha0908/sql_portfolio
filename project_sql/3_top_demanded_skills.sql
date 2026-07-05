@@ -9,7 +9,7 @@ give meaningful insights to job seekers
 
 SELECT
     sd.skills,
-    COUNT(sd.skills)
+    COUNT(sjd.job_id) AS demand_count
 FROM job_postings_fact AS jpf
 INNER JOIN skills_job_dim AS sjd
 ON jpf.job_id = sjd.job_id
@@ -20,5 +20,5 @@ WHERE
 GROUP BY
      sd.skills
 ORDER BY
-     COUNT(sd.skills) DESC
+     demand_count DESC
 LIMIT 5
